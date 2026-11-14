@@ -1,0 +1,6 @@
+# Dirks Geburtstagsrätsel (5x5x5 Kiste)
+KISTE 5 5 5
+STEIN 1 1 1 1 GOLD
+STEIN 4 1 1 1
+STEIN 6 1 2 4
+STEIN 6 2 2 3

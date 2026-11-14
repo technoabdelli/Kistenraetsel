@@ -1,0 +1,73 @@
+====================================================================
+               LÖSUNG DES WÜRFEL- UND QUADER-RÄTSELS                
+====================================================================
+
+1. ERKLÄRUNG DER DARSTELLUNG:
+   - Kistenmaße: 5 (X) x 5 (Y) x 5 (Z) cm
+   - Koordinatensystem: (x, y, z) gibt die untere linke vordere Ecke
+     eines Bausteins an (0-basiert).
+   - Kennzeichnung: 'GOLD' markiert den goldenen Würfel in der Mitte.
+     Alle weiteren Steine haben eindeutige IDs (z. B. Q1, Q2, W1...).
+
+2. LISTE ALLER PLATZIERTEN BAUSTEINE (Position & Ausrichtung):
+   ID    | Typ    | Originalmaße | Ausrichtung (dx,dy,dz) | Position (x,y,z)
+   ------+--------+--------------+------------------------+-----------------
+   GOLD  | GOLD   | 1x1x1        | 1x1x1                  | (2, 2, 2)
+   Q05   | Quader | 1x2x4        | 4x2x1                  | (0, 0, 0)
+   Q06   | Quader | 1x2x4        | 1x4x2                  | (4, 1, 0)
+   Q07   | Quader | 1x2x4        | 2x1x4                  | (0, 4, 0)
+   Q08   | Quader | 1x2x4        | 2x1x4                  | (3, 0, 1)
+   Q09   | Quader | 1x2x4        | 1x4x2                  | (0, 0, 3)
+   Q10   | Quader | 1x2x4        | 4x2x1                  | (1, 3, 4)
+   Q11   | Quader | 2x2x3        | 2x2x3                  | (0, 2, 0)
+   Q12   | Quader | 2x2x3        | 2x3x2                  | (2, 2, 0)
+   Q13   | Quader | 2x2x3        | 3x2x2                  | (0, 0, 1)
+   Q14   | Quader | 2x2x3        | 2x2x3                  | (3, 1, 2)
+   Q15   | Quader | 2x2x3        | 3x2x2                  | (2, 3, 2)
+   Q16   | Quader | 2x2x3        | 2x3x2                  | (1, 0, 3)
+   W01   | Quader | 1x1x1        | 1x1x1                  | (4, 0, 0)
+   W02   | Quader | 1x1x1        | 1x1x1                  | (3, 1, 1)
+   W03   | Quader | 1x1x1        | 1x1x1                  | (1, 3, 3)
+   W04   | Quader | 1x1x1        | 1x1x1                  | (0, 4, 4)
+
+3. SCHICHTWEISE DARSTELLUNG DER KISTE (Z-Ebenen von unten nach oben):
+
+   --- Schicht Z = 0 (Ebene 1 von 5) ---
+      X=0   X=1   X=2   X=3   X=4  
+   Y=0 Q05  Q05  Q05  Q05  W01 
+   Y=1 Q05  Q05  Q05  Q05  Q06 
+   Y=2 Q11  Q11  Q12  Q12  Q06 
+   Y=3 Q11  Q11  Q12  Q12  Q06 
+   Y=4 Q07  Q07  Q12  Q12  Q06 
+
+   --- Schicht Z = 1 (Ebene 2 von 5) ---
+      X=0   X=1   X=2   X=3   X=4  
+   Y=0 Q13  Q13  Q13  Q08  Q08 
+   Y=1 Q13  Q13  Q13  W02  Q06 
+   Y=2 Q11  Q11  Q12  Q12  Q06 
+   Y=3 Q11  Q11  Q12  Q12  Q06 
+   Y=4 Q07  Q07  Q12  Q12  Q06 
+
+   --- Schicht Z = 2 (Ebene 3 von 5) ---
+      X=0   X=1   X=2   X=3   X=4  
+   Y=0 Q13  Q13  Q13  Q08  Q08 
+   Y=1 Q13  Q13  Q13  Q14  Q14 
+   Y=2 Q11  Q11  GOLD Q14  Q14 
+   Y=3 Q11  Q11  Q15  Q15  Q15 
+   Y=4 Q07  Q07  Q15  Q15  Q15 
+
+   --- Schicht Z = 3 (Ebene 4 von 5) ---
+      X=0   X=1   X=2   X=3   X=4  
+   Y=0 Q09  Q16  Q16  Q08  Q08 
+   Y=1 Q09  Q16  Q16  Q14  Q14 
+   Y=2 Q09  Q16  Q16  Q14  Q14 
+   Y=3 Q09  W03  Q15  Q15  Q15 
+   Y=4 Q07  Q07  Q15  Q15  Q15 
+
+   --- Schicht Z = 4 (Ebene 5 von 5) ---
+      X=0   X=1   X=2   X=3   X=4  
+   Y=0 Q09  Q16  Q16  Q08  Q08 
+   Y=1 Q09  Q16  Q16  Q14  Q14 
+   Y=2 Q09  Q16  Q16  Q14  Q14 
+   Y=3 Q09  Q10  Q10  Q10  Q10 
+   Y=4 W04  Q10  Q10  Q10  Q10 
